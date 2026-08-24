@@ -8,6 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { once: true });
   });
 
+  const particlesHost = document.getElementById('heroParticles');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (particlesHost && !reduceMotion) {
+    const count = window.innerWidth < 768 ? 18 : 36;
+    for (let i = 0; i < count; i += 1) {
+      const particle = document.createElement('span');
+      particle.className = 'hero__particle';
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.bottom = `${Math.random() * 20}%`;
+      particle.style.animationDuration = `${6 + Math.random() * 10}s`;
+      particle.style.animationDelay = `${Math.random() * 8}s`;
+      particle.style.width = particle.style.height = `${2 + Math.random() * 3}px`;
+      particlesHost.appendChild(particle);
+    }
+  }
+
   const header = document.getElementById('header');
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
