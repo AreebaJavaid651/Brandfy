@@ -10,8 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/brandfy-logo.png" type="image/png">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('brandfy-theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="header header--solid" id="header">
     <div class="container header__inner">
@@ -28,11 +39,18 @@
           <li><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
       </nav>
-      <a href="contact.html" class="btn btn--primary header__cta">Get Free Consultation</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="header__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1110.5 3 7 7 0 0021 14.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn--primary header__cta">Get Free Consultation</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+      </div>
     </div>
   </header>
 
+  <main id="main">
   <section class="page-hero">
     <div class="container">
       <span class="section__tag">Our Work</span>
@@ -119,6 +137,7 @@
       <a href="contact.html" class="btn btn--primary btn--lg">Start Your Project</a>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container">

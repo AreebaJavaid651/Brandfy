@@ -29,22 +29,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
   const navLinks = document.querySelectorAll('.nav__link');
   const contactForm = document.getElementById('contactForm');
+  const themeToggle = document.getElementById('themeToggle');
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('brandfy-theme', theme);
+    } catch (e) {}
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        'aria-label',
+        theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
+      );
+    }
+  }
+
+  applyTheme(currentTheme());
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      applyTheme(currentTheme() === 'light' ? 'dark' : 'light');
+    });
+  }
 
   window.addEventListener('scroll', () => {
     if (header) header.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  }, { passive: true });
 
   if (hamburger && nav) {
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-controls', 'nav');
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      nav.classList.toggle('open');
-      document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+      const isOpen = nav.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         nav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
     });
@@ -53,51 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, index) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, index * 80);
+          entry.target.classList.add('visible');
           revealObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
   );
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  const counters = document.querySelectorAll('.stat__num');
-  let countersAnimated = false;
-
-  function animateCounters() {
-    if (countersAnimated) return;
-    const statsSection = document.querySelector('.hero__stats');
-    if (!statsSection) return;
-
-    const rect = statsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      countersAnimated = true;
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'), 10);
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        const updateCounter = () => {
-          current += step;
-          if (current >= target) {
-            counter.textContent = target;
-          } else {
-            counter.textContent = Math.floor(current);
-            requestAnimationFrame(updateCounter);
-          }
-        };
-        updateCounter();
-      });
-    }
-  }
-
-  window.addEventListener('scroll', animateCounters);
-  animateCounters();
+  revealElements.forEach((el) => revealObserver.observe(el));
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -120,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
       if (!href || href === '#') return;

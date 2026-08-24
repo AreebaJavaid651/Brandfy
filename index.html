@@ -10,8 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/brandfy-logo.png" type="image/png">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('brandfy-theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="ambient" aria-hidden="true">
     <span class="ambient__orb ambient__orb--1"></span>
@@ -34,13 +45,20 @@
           <li><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
       </nav>
-      <a href="contact.html" class="btn btn--primary header__cta">Get Free Consultation</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1110.5 3 7 7 0 0021 14.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn--primary header__cta">Get Free Consultation</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <main id="main">
   <section class="hero">
     <div class="hero__bg"></div>
     <div class="hero__particles" aria-hidden="true" id="heroParticles"></div>
@@ -48,46 +66,52 @@
       <div class="hero__content">
         <p class="hero__brand hero-animate">BRANDFY DIGITAL</p>
         <div class="hero__badge hero-animate">Trusted Digital Agency in Faisalabad</div>
-        <div class="hero__headline">
-          <h1 class="hero__title" aria-label="Building Brands. Driving Growth.">
-            <span class="hero__title-line">
-              <span class="hero__title-word">Building</span>
-              <span class="hero__title-word gold-text gold-shine">Brands.</span>
-            </span>
-            <span class="hero__title-line">
-              <span class="hero__title-word">Driving</span>
-              <span class="hero__title-word gold-text gold-shine">Growth.</span>
-            </span>
-          </h1>
-          <div class="hero__visual hero-animate">
-            <div class="hero__logo-ring">
-              <img src="images/brandfy-logo.png" alt="Brandfy Digital emblem" class="hero__logo-img">
-            </div>
-            <div class="hero__glow"></div>
-          </div>
-        </div>
+        <h1 class="hero__title" aria-label="Building Brands. Driving Growth.">
+          <span class="hero__title-line">
+            <span class="hero__title-word">Building</span>
+            <span class="hero__title-word gold-text gold-shine">Brands.</span>
+          </span>
+          <span class="hero__title-line">
+            <span class="hero__title-word">Driving</span>
+            <span class="hero__title-word gold-text gold-shine">Growth.</span>
+          </span>
+        </h1>
         <p class="hero__desc hero-animate">
-          Premium logo design, brand identity, websites, and digital marketing —
-          crafted to make your business look expensive and grow faster.
+          Branding, web development, and digital marketing — designed to make
+          your business look premium and grow with a clear strategy.
         </p>
         <div class="hero__actions hero-animate">
-          <a href="contact.html" class="btn btn--primary btn--lg btn--glow">Start Your Project</a>
+          <a href="contact.html" class="btn btn--primary btn--lg">Start Your Project</a>
           <a href="portfolio.html" class="btn btn--outline btn--lg">View Our Work</a>
         </div>
-        <div class="hero__stats hero-animate">
-          <div class="stat">
-            <span class="stat__num" data-count="50">0</span><span class="stat__plus">+</span>
-            <span class="stat__label">Projects Completed</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num" data-count="15">0</span><span class="stat__plus">+</span>
-            <span class="stat__label">Happy Clients</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num" data-count="100">0</span><span class="stat__plus">%</span>
-            <span class="stat__label">Client Satisfaction</span>
-          </div>
+        <div class="hero__trust hero-animate">
+          <article class="trust-point">
+            <span class="trust-point__label">01</span>
+            <h3>Creative Solutions</h3>
+            <p>Logos and identities built for real businesses.</p>
+          </article>
+          <article class="trust-point">
+            <span class="trust-point__label">02</span>
+            <h3>Client-Focused Approach</h3>
+            <p>Clear process, revisions, and direct communication.</p>
+          </article>
+          <article class="trust-point">
+            <span class="trust-point__label">03</span>
+            <h3>End-to-End Services</h3>
+            <p>From brand design to websites and marketing.</p>
+          </article>
+          <article class="trust-point">
+            <span class="trust-point__label">04</span>
+            <h3>Results-Driven Strategy</h3>
+            <p>Work that looks premium and supports growth.</p>
+          </article>
         </div>
+      </div>
+      <div class="hero__visual hero-animate">
+        <div class="hero__logo-ring">
+          <img src="images/brandfy-logo.png" alt="Brandfy Digital emblem" class="hero__logo-img">
+        </div>
+        <div class="hero__glow"></div>
       </div>
     </div>
     <div class="hero__scroll">
@@ -207,36 +231,60 @@
       </div>
       <div class="portfolio__grid portfolio__grid--home">
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-zavian.jpg" alt="Zavian"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">ZAVIAN</h3><span>Brand Identity</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-zavian.jpg" alt="Zavian brand identity logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>ZAVIAN</h3><span>Brand Identity</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-jk-property.png" alt="JK Property Advisor"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">JK Property Advisor</h3><span>Real Estate Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-jk-property.png" alt="JK Property Advisor logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>JK Property Advisor</h3><span>Real Estate Branding</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-mahir-e-dast.png" alt="Mahir-E-Dast"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">Mahir-E-Dast</h3><span>Paint Services Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-mahir-e-dast.png" alt="Mahir-E-Dast logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>Mahir-E-Dast</h3><span>Paint Services Branding</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-khan-gee.png" alt="Khan Gee Travel"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">Khan Gee Travel</h3><span>Travel Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-khan-gee.png" alt="Khan Gee Travel logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>Khan Gee Travel</h3><span>Travel Branding</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-al-umer.png" alt="Al Umer Estate Group"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">Al Umer Estate Group</h3><span>Real Estate Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-al-umer.png" alt="Al Umer Estate Group logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>Al Umer Estate Group</h3><span>Real Estate Branding</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-mufasa.jpg" alt="Mufasa"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">MUFASA</h3><span>Premium Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-mufasa.jpg" alt="Mufasa logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>MUFASA</h3><span>Premium Branding</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-style-bazar.png" alt="Style Bazar"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">Style Bazar</h3><span>Fashion Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-style-bazar.png" alt="Style Bazar logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>Style Bazar</h3><span>Fashion Branding</span></div>
         </a>
         <a href="portfolio.html" class="portfolio-item reveal">
-          <div class="portfolio-item__img-wrap"><img src="images/client-agri-leader.png" alt="Agri Leader International"></div>
-          <div class="portfolio-item__info"><h3 class="heading-reveal">Agri Leader</h3><span>Agriculture Branding</span></div>
+          <div class="portfolio-item__img-wrap">
+            <img src="images/client-agri-leader.png" alt="Agri Leader International logo">
+            <div class="portfolio-item__overlay"><span>View work</span></div>
+          </div>
+          <div class="portfolio-item__info"><h3>Agri Leader</h3><span>Agriculture Branding</span></div>
         </a>
       </div>
       <div class="section__cta reveal">
@@ -248,10 +296,14 @@
   <section class="cta-banner">
     <div class="container cta-banner__inner reveal">
       <h2 class="heading-reveal">Ready to Build Your Brand?</h2>
-      <p>Get a free consultation and let's discuss how we can help your business grow.</p>
-      <a href="contact.html" class="btn btn--primary btn--lg">Get Free Consultation</a>
+      <p>Tell us about your business — we’ll recommend the right branding, website, or marketing next step.</p>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Get Free Consultation</a>
+        <a href="https://wa.me/923008653044?text=Hi%20Brandfy%20Digital!%20I%20want%20to%20discuss%20a%20project." class="btn btn--outline btn--lg" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
