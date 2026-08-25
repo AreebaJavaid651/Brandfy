@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('themeToggle');
 
   function currentTheme() {
-    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     try {
-      localStorage.setItem('brandfy-theme', theme);
+      localStorage.setItem('brandfy-theme-v2', theme);
     } catch (e) {}
     if (themeToggle) {
       themeToggle.setAttribute(
