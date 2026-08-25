@@ -59,79 +59,155 @@
     </div>
   </section>
 
-  <section class="about section">
+  <section class="about-story section">
     <div class="container">
-      <div class="about__grid">
-        <div class="about__visual reveal">
-          <div class="about__logo-wrap">
-            <img src="images/brandfy-logo.png" alt="Brandfy Digital Logo" class="about__logo">
+      <div class="about-story__grid">
+        <div class="about-story__media reveal" data-reveal="left">
+          <div class="about-story__frame">
+            <img src="images/about-studio.jpg" alt="Brand design and creative studio workspace" class="about-story__img">
           </div>
-          <div class="about__accent"></div>
+          <div class="about-story__badge reveal" data-reveal="up" data-delay="2">
+            <span class="about-story__badge-label">Our Promise</span>
+            <p>Building Brands.<br>Driving Growth.</p>
+          </div>
         </div>
-        <div class="about__content reveal">
-          <span class="section__tag">Who We Are</span>
-          <h2 class="section__title">A Creative Agency From <span class="gold-text">Faisalabad</span></h2>
+        <div class="about-story__content reveal" data-reveal="right">
+          <span class="section__tag">Our Story</span>
+          <h2 class="section__title">A Design Studio Built for <span class="gold-text">Real Businesses</span></h2>
           <p class="about__text">
-            Brandfy Digital is a premium branding and digital marketing studio. Our tagline —
-            <strong>Building Brands. Driving Growth.</strong> — is exactly what we do for every client.
+            Brandfy Digital started in Faisalabad with one clear idea: local brands deserve the same
+            premium look and digital strategy that big agencies sell — without the confusion or delay.
           </p>
           <p class="about__text">
-            From first-time entrepreneurs to established companies, we create logos, brand systems,
-            websites, and marketing assets that look high-end and work in the real market. You can
-            see our latest work on our
-            <a href="https://web.facebook.com/profile.php?id=61593432682241" target="_blank" rel="noopener" class="inline-gold">Facebook page</a>.
+            Today we partner with founders and growing companies across real estate, education,
+            fashion, travel, automotive, and agriculture. Every project is handled with a sharp brief,
+            refined design, and a growth-first mindset.
           </p>
-          <ul class="about__features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Premium logo &amp; 3D brand design
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Industry-specific identities (real estate, travel, fashion, education, agri)
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Website, social media &amp; SEO support
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Based at Narrwala Road, Baba Freed Center, Faisalabad
-            </li>
-          </ul>
+          <div class="about-story__highlights">
+            <div>
+              <strong>Faisalabad based</strong>
+              <span>Narrwala Road, Baba Freed Center</span>
+            </div>
+            <div>
+              <strong>Direct communication</strong>
+              <span>WhatsApp, call &amp; email support</span>
+            </div>
+            <div>
+              <strong>End-to-end delivery</strong>
+              <span>Brand, web &amp; marketing under one roof</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="why section section--dark">
+  <section class="about-mission section section--dark">
+    <div class="container">
+      <div class="about-mission__grid">
+        <article class="about-mission__card reveal" data-reveal="up">
+          <span class="about-mission__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </span>
+          <h3>Our Mission</h3>
+          <p>Help businesses look premium online and offline — with brand identities and digital systems that attract trust and drive growth.</p>
+        </article>
+        <article class="about-mission__card reveal" data-reveal="up" data-delay="2">
+          <span class="about-mission__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h3>Our Vision</h3>
+          <p>Become Pakistan’s go-to creative partner for brands that want lasting design, clear strategy, and measurable digital presence.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-approach section">
+    <div class="container">
+      <div class="section__header reveal" data-reveal="up">
+        <span class="section__tag">How We Work</span>
+        <h2 class="section__title">A Premium Process, <span class="gold-text">Made Simple</span></h2>
+        <p class="section__desc">No fluff — just a clear path from first idea to final brand assets.</p>
+      </div>
+      <div class="about-approach__grid" id="approachSteps" data-approach-steps>
+        <article class="about-approach__step is-active" data-step="0" tabindex="0" role="button" aria-pressed="true">
+          <span class="about-approach__num">01</span>
+          <h3>Discover</h3>
+          <p>We learn your market, audience, and what your brand must communicate.</p>
+          <div class="about-approach__progress" aria-hidden="true"><i></i></div>
+        </article>
+        <article class="about-approach__step" data-step="1" tabindex="0" role="button" aria-pressed="false">
+          <span class="about-approach__num">02</span>
+          <h3>Design</h3>
+          <p>Concepts are crafted with premium detail — then refined with your feedback.</p>
+          <div class="about-approach__progress" aria-hidden="true"><i></i></div>
+        </article>
+        <article class="about-approach__step" data-step="2" tabindex="0" role="button" aria-pressed="false">
+          <span class="about-approach__num">03</span>
+          <h3>Develop</h3>
+          <p>We build the full identity system, website, or campaign assets you need.</p>
+          <div class="about-approach__progress" aria-hidden="true"><i></i></div>
+        </article>
+        <article class="about-approach__step" data-step="3" tabindex="0" role="button" aria-pressed="false">
+          <span class="about-approach__num">04</span>
+          <h3>Deliver</h3>
+          <p>You receive polished files, guidance, and ongoing support for launch.</p>
+          <div class="about-approach__progress" aria-hidden="true"><i></i></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-industries section section--dark">
+    <div class="container">
+      <div class="section__header reveal" data-reveal="up">
+        <span class="section__tag">Industries</span>
+        <h2 class="section__title">Sectors We <span class="gold-text">Specialize In</span></h2>
+        <p class="section__desc">Focused creative experience across the markets our clients actually grow in.</p>
+      </div>
+      <ul class="about-industries__list">
+        <li class="reveal" data-reveal="up" data-delay="1">Real Estate</li>
+        <li class="reveal" data-reveal="up" data-delay="2">Education</li>
+        <li class="reveal" data-reveal="up" data-delay="3">Fashion &amp; Retail</li>
+        <li class="reveal" data-reveal="up" data-delay="4">Travel</li>
+        <li class="reveal" data-reveal="up" data-delay="1">Automotive</li>
+        <li class="reveal" data-reveal="up" data-delay="2">Agriculture</li>
+        <li class="reveal" data-reveal="up" data-delay="3">Startups</li>
+        <li class="reveal" data-reveal="up" data-delay="4">Professional Services</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="why section">
     <div class="container">
       <div class="why__grid">
-        <div class="why__content reveal">
+        <div class="why__content reveal" data-reveal="left">
           <span class="section__tag">Why Choose Us</span>
-          <h2 class="section__title">Why Brandfy Digital is Your <span class="gold-text">Best Choice</span></h2>
+          <h2 class="section__title">Why Brands Trust <span class="gold-text">Brandfy Digital</span></h2>
           <p class="section__desc">Creative excellence plus clear process — so your brand looks premium and performs.</p>
+          <a href="contact.html" class="btn btn--primary">Start a Conversation</a>
         </div>
         <div class="why__cards">
-          <div class="why-card reveal">
+          <div class="why-card reveal" data-reveal="up" data-delay="1">
             <span class="why-card__num">01</span>
             <h3>Premium Quality Design</h3>
-            <p>Every logo is crafted with detail, metallic finishes, and a look that matches luxury agency work.</p>
+            <p>Every logo is crafted with detail and a finish that matches luxury agency work.</p>
           </div>
-          <div class="why-card reveal">
+          <div class="why-card reveal" data-reveal="up" data-delay="2">
             <span class="why-card__num">02</span>
             <h3>Affordable Pricing</h3>
             <p>World-class branding at competitive rates without compromising quality.</p>
           </div>
-          <div class="why-card reveal">
+          <div class="why-card reveal" data-reveal="up" data-delay="3">
             <span class="why-card__num">03</span>
             <h3>Fast Delivery</h3>
             <p>A streamlined process so you get concepts and revisions quickly.</p>
           </div>
-          <div class="why-card reveal">
+          <div class="why-card reveal" data-reveal="up" data-delay="4">
             <span class="why-card__num">04</span>
             <h3>Dedicated Support</h3>
-            <p>From brief to final files, we stay with you until you are 100% satisfied.</p>
+            <p>From brief to final files, we stay with you until you are fully satisfied.</p>
           </div>
         </div>
       </div>
@@ -139,7 +215,7 @@
   </section>
 
   <section class="cta-banner">
-    <div class="container cta-banner__inner reveal">
+    <div class="container cta-banner__inner reveal" data-reveal="up">
       <h2>Let’s Build Something Premium</h2>
       <p>Tell us about your business — we’ll recommend the right branding package.</p>
       <a href="contact.html" class="btn btn--primary btn--lg">Contact Us</a>

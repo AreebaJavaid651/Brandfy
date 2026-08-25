@@ -121,6 +121,148 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const approachRoot = document.querySelector('[data-approach-steps]');
+  if (approachRoot && !reduceMotion) {
+    const steps = Array.from(approachRoot.querySelectorAll('.about-approach__step'));
+    const section = approachRoot.closest('.about-approach');
+    let activeIndex = 0;
+    let timer = null;
+    let scrollLocked = false;
+    let cycleDone = false;
+    let started = false;
+    const INTERVAL = 1600;
+    const scrollKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar']);
+
+    function setActive(index) {
+      activeIndex = Math.max(0, Math.min(index, steps.length - 1));
+      steps.forEach((step, i) => {
+        const isActive = i === activeIndex;
+        const isDone = i < activeIndex;
+        step.classList.toggle('is-active', isActive);
+        step.classList.toggle('is-done', isDone);
+        step.setAttribute('aria-pressed', String(isActive));
+        const bar = step.querySelector('.about-approach__progress i');
+        if (!bar) return;
+        bar.style.animation = 'none';
+        bar.style.width = isDone ? '100%' : '0';
+        if (isActive) {
+          void bar.offsetWidth;
+          bar.style.animation = '';
+          bar.style.width = '';
+        }
+      });
+    }
+
+    function blockScroll(e) {
+      if (!scrollLocked) return;
+      e.preventDefault();
+    }
+
+    function blockKeyScroll(e) {
+      if (!scrollLocked) return;
+      if (scrollKeys.has(e.key)) e.preventDefault();
+    }
+
+    function lockScroll() {
+      if (scrollLocked) return;
+      scrollLocked = true;
+      document.documentElement.classList.add('approach-scroll-lock');
+      document.body.classList.add('approach-scroll-lock');
+      window.addEventListener('wheel', blockScroll, { passive: false });
+      window.addEventListener('touchmove', blockScroll, { passive: false });
+      window.addEventListener('keydown', blockKeyScroll, { passive: false });
+    }
+
+    function unlockScroll() {
+      if (!scrollLocked) return;
+      scrollLocked = false;
+      document.documentElement.classList.remove('approach-scroll-lock');
+      document.body.classList.remove('approach-scroll-lock');
+      window.removeEventListener('wheel', blockScroll);
+      window.removeEventListener('touchmove', blockScroll);
+      window.removeEventListener('keydown', blockKeyScroll);
+    }
+
+    function stop() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function finishCycle() {
+      cycleDone = true;
+      stop();
+      unlockScroll();
+      steps.forEach((step, i) => {
+        step.classList.toggle('is-active', i === steps.length - 1);
+        step.classList.toggle('is-done', i < steps.length - 1);
+        step.setAttribute('aria-pressed', String(i === steps.length - 1));
+        const bar = step.querySelector('.about-approach__progress i');
+        if (bar) {
+          bar.style.animation = 'none';
+          bar.style.width = '100%';
+        }
+      });
+      activeIndex = steps.length - 1;
+    }
+
+    function play() {
+      stop();
+      timer = window.setInterval(() => {
+        if (activeIndex >= steps.length - 1) {
+          finishCycle();
+          return;
+        }
+        setActive(activeIndex + 1);
+      }, INTERVAL);
+    }
+
+    function startSequence() {
+      if (cycleDone || started) return;
+      started = true;
+      setActive(0);
+      lockScroll();
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      play();
+    }
+
+    steps.forEach((step, i) => {
+      const activate = () => {
+        if (scrollLocked || !cycleDone) return;
+        setActive(i);
+      };
+      step.addEventListener('click', activate);
+      step.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
+
+    if (section) {
+      const approachObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !cycleDone) {
+              startSequence();
+            }
+          });
+        },
+        { threshold: 0.45 }
+      );
+      approachObserver.observe(section);
+    }
+  } else if (approachRoot && reduceMotion) {
+    approachRoot.querySelectorAll('.about-approach__step').forEach((step) => {
+      step.classList.add('is-active');
+      step.classList.remove('is-done');
+    });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
