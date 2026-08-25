@@ -51,100 +51,115 @@
   </header>
 
   <main id="main">
-  <section class="page-hero">
-    <div class="container">
-      <span class="section__tag">Contact</span>
-      <h1>Let’s Start Your <span class="gold-text">Project</span></h1>
-      <p class="breadcrumb"><a href="index.html">Home</a> / Contact</p>
+  <section class="page-hero page-hero--contact">
+    <div class="page-hero__glow" aria-hidden="true"></div>
+    <div class="container page-hero__inner">
+      <p class="breadcrumb reveal" data-reveal="up">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Contact Us</span>
+      </p>
+      <h1 class="reveal" data-reveal="up" data-delay="1">Contact <span class="gold-text">Us</span></h1>
+      <p class="page-hero__sub reveal" data-reveal="up" data-delay="2">Stay tuned with Brandfy Digital — let’s build your next brand together.</p>
     </div>
   </section>
 
-  <section class="contact section">
+  <section class="contact-connect section">
     <div class="container">
-      <div class="contact__grid">
-        <div class="contact__info reveal">
-          <span class="section__tag">Get In Touch</span>
-          <h2 class="section__title">We’re Here in <span class="gold-text">Faisalabad</span></h2>
-          <p class="section__desc">Share your project details. Our team replies within 24 hours on WhatsApp or email.</p>
-          <div class="contact__details">
-            <div class="contact__item">
-              <div class="contact__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              </div>
-              <div>
-                <h4>Email</h4>
-                <a href="mailto:Brandfydigital@gmail.com">Brandfydigital@gmail.com</a>
-              </div>
-            </div>
-            <div class="contact__item">
-              <div class="contact__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-              </div>
-              <div>
-                <h4>Phone / WhatsApp</h4>
-                <a href="tel:+923008653044">0300-8653044</a>
-              </div>
-            </div>
-            <div class="contact__item">
-              <div class="contact__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              </div>
-              <div>
-                <h4>Address</h4>
-                <p>Narrwala Road, Baba Freed Center, Faisalabad, Pakistan</p>
-              </div>
-            </div>
-            <div class="contact__item">
-              <div class="contact__icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </div>
-              <div>
-                <h4>Facebook</h4>
-                <a href="https://web.facebook.com/profile.php?id=61593432682241" target="_blank" rel="noopener">Brandfy Digital</a>
-              </div>
-            </div>
+      <div class="contact-connect__header section__header">
+        <span class="section__tag reveal" data-reveal="up">Stay Tuned With Us</span>
+        <h2 class="section__title reveal" data-reveal="up" data-delay="1">Let’s Get In Touch With Us</h2>
+        <p class="section__desc reveal" data-reveal="up" data-delay="2">Share your project details. Our team replies within 24 hours on WhatsApp or email.</p>
+      </div>
+
+      <div class="contact-cards">
+        <article class="contact-card reveal" data-reveal="up" data-delay="1">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-        </div>
-        <form class="contact__form reveal" id="contactForm">
-          <h3>Send Us a Message</h3>
-          <div class="form-group">
-            <label for="name">Your Name *</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your name">
+          <h3 class="contact-card__title">Our Address</h3>
+          <p class="contact-card__text">Narrwala Road, Baba Freed Center, Faisalabad, Pakistan</p>
+        </article>
+
+        <article class="contact-card reveal" data-reveal="up" data-delay="2">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email">
+          <h3 class="contact-card__title">Open Hours</h3>
+          <p class="contact-card__text">Mon – Sat · 10 AM – 7 PM<br>WhatsApp support available daily</p>
+        </article>
+
+        <article class="contact-card reveal" data-reveal="up" data-delay="3">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+          <h3 class="contact-card__title">Email Address</h3>
+          <p class="contact-card__text"><a href="mailto:Brandfydigital@gmail.com">Brandfydigital@gmail.com</a></p>
+        </article>
+
+        <article class="contact-card reveal" data-reveal="up" data-delay="4">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </div>
-          <div class="form-group">
-            <label for="service">Which service are you interested in? *</label>
-            <select id="service" name="service" required>
-              <option value="">Select Your Service</option>
-              <option value="Logo Design">Logo Design</option>
-              <option value="Brand Identity">Brand Identity</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Social Media Marketing">Social Media Marketing</option>
-              <option value="SEO Services">SEO Services</option>
-              <option value="Graphic Design">Graphic Design</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message *</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project..."></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">Send on WhatsApp</button>
-          <p class="form-note">Prefer a quick chat? <a href="https://wa.me/923008653044?text=Hi%20Brandfy%20Digital!%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
-        </form>
+          <h3 class="contact-card__title">Telephone</h3>
+          <p class="contact-card__text"><a href="tel:+923008653044">0300-8653044</a></p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="map-wrap">
-    <iframe title="Brandfy Digital Faisalabad location" src="https://maps.google.com/maps?q=Narrwala%20Road%20Baba%20Fareed%20Center%20Faisalabad&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section class="contact-main section section--dark">
+    <div class="container">
+      <div class="contact-main__grid">
+        <div class="contact-main__form-wrap reveal" data-reveal="left">
+          <span class="section__tag">Leave a Message</span>
+          <h2 class="section__title">Leave a Message For Us</h2>
+          <p class="section__desc contact-main__desc">Tell us about your brand goals. We’ll reply with a clear next step — usually within 24 hours.</p>
+
+          <form class="contact__form contact__form--eklan" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+              </div>
+              <div class="form-group">
+                <label for="service">Service *</label>
+                <select id="service" name="service" required>
+                  <option value="">Select Your Service</option>
+                  <option value="Logo Design">Logo Design</option>
+                  <option value="Brand Identity">Brand Identity</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Social Media Marketing">Social Media Marketing</option>
+                  <option value="SEO Services">SEO Services</option>
+                  <option value="Graphic Design">Graphic Design</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--glow">Send on WhatsApp</button>
+            <p class="form-note">* We never spam your email. Prefer a quick chat? <a href="https://wa.me/923008653044?text=Hi%20Brandfy%20Digital!%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
+          </form>
+        </div>
+
+        <div class="contact-main__map reveal" data-reveal="right" data-delay="2">
+          <iframe title="Brandfy Digital Faisalabad location" src="https://maps.google.com/maps?q=Narrwala%20Road%20Baba%20Fareed%20Center%20Faisalabad&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
   </section>
   </main>
 
